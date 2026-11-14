@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apex Science Engine</title>
+    <!-- Favicon Integration -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <meta name='author' content='Ahmed Mustafa Heasen'>
+    <meta name='description' content='Science Engine is your smart tool for solving complex math problems, programming code, and science questions instantly.'>
+    <meta name='keywords' content='Science Engine, Math Solver, Programming Helper, Science Calculator, Ahmed Mustafa Heasen'>
+    <meta name='robots' content='index, follow'>
+    <!-- Open Graph tags for social media sharing -->
+    <meta property='og:title' content='Science Engine | Smart Math & Programming Solver'>
+    <meta property='og:description' content='Solve math, programming bugs, and science questions effortlessly with Science Engine.'>
+    <meta property='og:url' content=''>
+    <meta property='og:type' content='website'>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<div class="app-container">
+    <div class="header">
+        <h1>Apex Science Engine</h1>
+        <p>Interactive Physics, Math & Engineering Engine</p>
+    </div>
+
+    <!-- Theme Customizer Bar -->
+    <div class="theme-bar">
+        <span>🎨 Neon Accent Theme:</span>
+        <div class="color-dots">
+            <div class="dot" style="background:#00f0ff" onclick="setTheme('')"></div>
+            <div class="dot" style="background:#bc8cff" onclick="setTheme('theme-purple')"></div>
+            <div class="dot" style="background:#f0883e" onclick="setTheme('theme-orange')"></div>
+            <div class="dot" style="background:#3fb950" onclick="setTheme('theme-green')"></div>
+            <div class="dot" style="background:#d29922" onclick="setTheme('theme-gold')"></div>
+            <div class="dot" style="background:#f50f0f" onclick="setTheme('theme-red')"></div>
+            <div class="dot" style="background:#eff50f" onclick="setTheme('theme-yellow')"></div>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="nav-grid">
+        <button class="tab-btn active" onclick="openTab('algebra', this)">Algebra</button>
+        <button class="tab-btn" onclick="openTab('calculus', this)">Calculus</button>
+        <button class="tab-btn" onclick="openTab('physics', this)">Physics</button>
+        <button class="tab-btn" onclick="openTab('graph', this)">Graph 2D</button>
+        <button class="tab-btn" onclick="openTab('matrix', this)">Matrix</button>
+        <button class="tab-btn" onclick="openTab('converter', this)">Converter</button>
+        <button class="tab-btn" onclick="openTab('stats', this)">Statistics</button>
+        <button class="tab-btn" onclick="openTab('notes', this)">Smart Notes</button>
+        <button class="tab-btn" onclick="openTab('motion', this)">Physics Motion</button>
+    </div>
+
+    <!-- Panel 1: Algebra -->
+    <div id="algebraPanel" class="panel-card">
+        <div class="input-group">
+            <label>Quadratic Equation (ax² + bx + c = 0):</label>
+            <div style="display:flex; gap:6px;">
+                <input type="number" id="algA" class="input-box" value="1" placeholder="a">
+                <input type="number" id="algB" class="input-box" value="5" placeholder="b">
+                <input type="number" id="algC" class="input-box" value="6" placeholder="c">
+            </div>
+        </div>
+        <button class="btn-action" onclick="runAlgebra()">Solve Step-by-Step ⚡</button>
+        <div class="steps-wrapper" id="algSteps"></div>
+    </div>
+
+    <!-- Panel 2: Calculus -->
+    <div id="calculusPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Target Function f(x):</label>
+            <input type="text" id="calcExp" class="input-box" value="x^3 - 3*x + 2">
+        </div>
+        <button class="btn-action" onclick="runCalculus()">Analyze Derivative & Integral ⚡</button>
+        <div class="steps-wrapper" id="calcSteps"></div>
+    </div>
+
+    <!-- Panel 3: Physics -->
+    <div id="physicsPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Mass m (kg):</label>
+            <input type="number" id="physM" class="input-box" value="12" oninput="runPhysics()">
+        </div>
+        <div class="input-group">
+            <label>Acceleration a (m/s²):</label>
+            <input type="number" id="physA" class="input-box" value="9.8" oninput="runPhysics()">
+        </div>
+        <div class="steps-wrapper" id="physSteps"></div>
+    </div>
+
+    <!-- Panel 4: Graph 2D -->
+    <div id="graphPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Function f(x):</label>
+            <input type="text" id="graphExp" class="input-box" value="x^2 - 4" oninput="drawGraph()">
+        </div>
+        <div class="canvas-holder">
+            <canvas id="graphCanvas" class="display-canvas" width="460" height="220"></canvas>
+        </div>
+    </div>
+
+    <!-- Panel 5: Matrix -->
+    <div id="matrixPanel" class="panel-card hidden">
+        <label style="font-size:11px; color:var(--text-sub); display:block; margin-bottom:6px;">Matrix 2x2 Elements:</label>
+        <div class="matrix-grid">
+            <input type="number" id="m11" class="input-box" value="4">
+            <input type="number" id="m12" class="input-box" value="3">
+            <input type="number" id="m21" class="input-box" value="2">
+            <input type="number" id="m22" class="input-box" value="1">
+        </div>
+        <button class="btn-action" onclick="runMatrix()">Compute Determinant & Inverse ⚡</button>
+        <div class="steps-wrapper" id="matSteps"></div>
+    </div>
+
+    <!-- Panel 6: Converter -->
+    <div id="converterPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Length in Meters (m):</label>
+            <input type="number" id="unitMeters" class="input-box" value="100" oninput="runConverter()">
+        </div>
+        <div class="steps-wrapper" id="convSteps"></div>
+    </div>
+
+    <!-- Panel 7: Statistics Calculator -->
+    <div id="statsPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Enter Numbers (separated by commas):</label>
+            <input type="text" id="statsInput" class="input-box" value="10, 20, 30, 40, 50" placeholder="e.g. 5, 12, 8, 20">
+        </div>
+        <button class="btn-action" onclick="runStatistics()">Compute Statistics ⚡</button>
+        <div class="steps-wrapper" id="statsSteps"></div>
+    </div>
+
+    <!-- Panel 8: Smart Notes -->
+    <div id="notesPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Quick Math & Physics Notes:</label>
+            <textarea id="userNotes" class="input-box" rows="5" placeholder="Write your equations or formulas here..."></textarea>
+        </div>
+        <button class="btn-action" onclick="saveNotes()">Save Notes to Browser 💾</button>
+        <div class="steps-wrapper" id="notesStatus"></div>
+    </div>
+
+    <!-- Panel 9: Physics Motion Calculator -->
+    <div id="motionPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Initial Velocity (v₀ in m/s):</label>
+            <input type="number" id="v0Input" class="input-box" value="0">
+        </div>
+        <div class="input-group">
+            <label>Acceleration (a in m/s²):</label>
+            <input type="number" id="accelInput" class="input-box" value="9.8">
+        </div>
+        <div class="input-group">
+            <label>Time (t in seconds):</label>
+            <input type="number" id="timeInput" class="input-box" value="5">
+        </div>
+        <button class="btn-action" onclick="runMotionPhysics()">Calculate Final Velocity & Distance ⚡</button>
+        <div class="steps-wrapper" id="motionSteps"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
