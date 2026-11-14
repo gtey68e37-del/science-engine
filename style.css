@@ -346,3 +346,20 @@ canvas.display-canvas {
 }
 
 .hidden { display: none !important; }
+.lesson-explanation {
+    margin-top: 14px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px dashed var(--border);
+}
+.lesson-explanation h4 {
+    font-size: 11px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.lesson-explanation p {
+    font-size: 10px;
+    color: var(--text-sub);
+    line-height: 1.4;
+}

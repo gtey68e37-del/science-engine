@@ -59,7 +59,7 @@ function openTab(name, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     if(btn) btn.classList.add('active');
 
-    const allPanels = ['algebra', 'calculus', 'physics', 'graph', 'matrix', 'converter', 'stats', 'notes', 'motion'];
+    const allPanels = ['algebra', 'calculator', 'calculus', 'physics', 'graph', 'matrix', 'converter', 'stats', 'notes', 'motion'];
 
     allPanels.forEach(p => {
         let panel = document.getElementById(p + 'Panel');
@@ -374,3 +374,54 @@ window.onload = function() {
         if (notesBox) notesBox.value = savedNotes;
     }
 };
+// Advanced Scientific Calculator Logic
+let calcExpression = "";
+function calcAppend(val) {
+    if(calcExpression === "0" && val !== '.') calcExpression = "";
+    calcExpression += val;
+    let screen = document.getElementById('calcScreen');
+    if(screen) screen.value = calcExpression;
+}
+function calcClear() {
+    calcExpression = "0";
+    let screen = document.getElementById('calcScreen');
+    if(screen) screen.value = calcExpression;
+    let resBox = document.getElementById('calcResultBox');
+    if(resBox) resBox.innerHTML = "";
+}
+function calcCompute() {
+    try {
+        let safeExp = calcExpression.replace(/×/g, '*').replace(/÷/g, '/');
+        let res = Function('"use strict";return (' + safeExp + ')')();
+        let screen = document.getElementById('calcScreen');
+        if(screen) screen.value = res;
+        let resBox = document.getElementById('calcResultBox');
+        if(resBox) {
+            resBox.innerHTML = `
+                <div class="step-item">
+                    <div class="step-header"><span>Computation Result</span><span>Success</span></div>
+                    <div class="step-code">${calcExpression} = ${res}</div>
+                </div>`;
+        }
+        calcExpression = res.toString();
+    }	catch(e) {
+        let resBox = document.getElementById('calcResultBox');
+        if(resBox) {
+            resBox.innerHTML = `
+                <div class="step-item" style="border-left-color:#f50f0f;">
+                    <div class="step-header" style="color:#f50f0f;"><span>Syntax Error</span></div>
+                    <div class="step-code">Invalid expression syntax.</div>
+                </div>`;
+        }
+    }
+}
+// Backspace Calculator Function (Deletes last character)
+function calcBackspace() {
+    if (calcExpression.length > 1) {
+        calcExpression = calcExpression.slice(0, -1);
+    } else {
+        calcExpression = "0";
+    }
+    let screen = document.getElementById('calcScreen');
+    if(screen) screen.value = calcExpression;
+}

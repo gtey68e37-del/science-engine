@@ -51,6 +51,7 @@
         <button class="tab-btn" onclick="openTab('stats', this)">Statistics</button>
         <button class="tab-btn" onclick="openTab('notes', this)">Smart Notes</button>
         <button class="tab-btn" onclick="openTab('motion', this)">Physics Motion</button>
+        <button class="tab-btn" onclick="openTab('calculator', this)">Calculator 🧮</button>
     </div>
 
     <!-- Panel 1: Algebra -->
@@ -65,7 +66,12 @@
         </div>
         <button class="btn-action" onclick="runAlgebra()">Solve Step-by-Step ⚡</button>
         <div class="steps-wrapper" id="algSteps"></div>
-    </div>
+         <div class="lesson-explanation">
+    <h4>📖 Lesson Breakdown:</h4>
+    <p><strong>Quadratic Equations ($ax^2 + bx + c = 0$):</strong> Uses the discriminant formula ($\Delta = b^2 - 4ac$) to find real or complex roots.</p>
+</div>
+
+   </div>
 
     <!-- Panel 2: Calculus -->
     <div id="calculusPanel" class="panel-card hidden">
@@ -75,6 +81,10 @@
         </div>
         <button class="btn-action" onclick="runCalculus()">Analyze Derivative & Integral ⚡</button>
         <div class="steps-wrapper" id="calcSteps"></div>
+          <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Differential & Integral Calculus:</strong> Analyzes continuous change. The derivative $f'(x)$ measures the instantaneous rate of change (slope), while the definite integral $\int f(x)\,dx$ computes the accumulated area under the function's curve.</p>
+          </div>
     </div>
 
     <!-- Panel 3: Physics -->
@@ -88,7 +98,11 @@
             <input type="number" id="physA" class="input-box" value="9.8" oninput="runPhysics()">
         </div>
         <div class="steps-wrapper" id="physSteps"></div>
-    </div>
+        <div class="lesson-explanation">
+    <h4>📖 Lesson Breakdown:</h4>
+    <p><strong>Newton's Second Law:</strong> Calculates force using $F = ma$, determining momentum and kinetic energy transformations.</p>
+</div>
+  </div>
 
     <!-- Panel 4: Graph 2D -->
     <div id="graphPanel" class="panel-card hidden">
@@ -98,6 +112,10 @@
         </div>
         <div class="canvas-holder">
             <canvas id="graphCanvas" class="display-canvas" width="460" height="220"></canvas>
+        </div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Cartesian Coordinate Graphing:</strong> Maps algebraic functions visually onto a 2D plane $(x, y)$. This allows instant identification of roots (x-intercepts), vertices, symmetry, and asymptotic behaviors.</p>
         </div>
     </div>
 
@@ -112,6 +130,11 @@
         </div>
         <button class="btn-action" onclick="runMatrix()">Compute Determinant & Inverse ⚡</button>
         <div class="steps-wrapper" id="matSteps"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Linear Algebra & 2x2 Matrices:</strong> Calculates the determinant ($|A| = ad - bc$) to verify if a matrix is invertible. When $|A| \neq 0$, the inverse matrix $A^{-1}$ is derived to solve systems of linear equations.</p>
+        </div>
+
     </div>
 
     <!-- Panel 6: Converter -->
@@ -121,6 +144,10 @@
             <input type="number" id="unitMeters" class="input-box" value="100" oninput="runConverter()">
         </div>
         <div class="steps-wrapper" id="convSteps"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Dimensional Analysis & Unit Conversion:</strong> Converts physical length measurements across Metric (kilometers) and Imperial (miles, feet) systems using exact conversion factors to prevent scaling errors in engineering calculations.</p>
+        </div>
     </div>
 
     <!-- Panel 7: Statistics Calculator -->
@@ -131,6 +158,10 @@
         </div>
         <button class="btn-action" onclick="runStatistics()">Compute Statistics ⚡</button>
         <div class="steps-wrapper" id="statsSteps"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Descriptive Statistics:</strong> Evaluates numerical datasets to extract central tendency (Arithmetic Mean = $\frac{\sum x}{n}$) alongside range boundaries (Maximum and Minimum values) for data analysis.</p>
+        </div>
     </div>
 
     <!-- Panel 8: Smart Notes -->
@@ -141,6 +172,10 @@
         </div>
         <button class="btn-action" onclick="saveNotes()">Save Notes to Browser 💾</button>
         <div class="steps-wrapper" id="notesStatus"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Browser Local Storage Persistence:</strong> Uses the Web Storage API (`localStorage`) to store your equations, constants, and study notes directly on your device so they remain saved even after closing the browser.</p>
+        </div>
     </div>
 
     <!-- Panel 9: Physics Motion Calculator -->
@@ -159,6 +194,48 @@
         </div>
         <button class="btn-action" onclick="runMotionPhysics()">Calculate Final Velocity & Distance ⚡</button>
         <div class="steps-wrapper" id="motionSteps"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Kinematics (Uniform Acceleration):</strong> Applies Newton's kinematic equations to predict object motion over time, calculating final velocity ($v = v_0 + at$) and total displacement ($d = v_0t + \frac{1}{2}at^2$).</p>
+        </div>
+    </div>
+    <!-- Panel:10 Advanced Scientific Calculator -->
+    <div id="calculatorPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Scientific Calculator Screen:</label>
+            <input type="text" id="calcScreen" class="input-box" readonly value="0">
+        </div>
+        <div class="calc-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px;">
+            <button class="btn-action" onclick="calcClear()" style="background:#f50f0f;">C</button>
+            <button class="btn-action" onclick="calcBackspace()" style="background:#f50f0f;">DEL</button>
+            <button class="btn-action" onclick="calcAppend('(')">(</button>
+            <button class="btn-action" onclick="calcAppend(')')">)</button>
+            <button class="btn-action" onclick="calcAppend('/')">÷</button>
+            
+            <button class="btn-action" onclick="calcAppend('7')">7</button>
+            <button class="btn-action" onclick="calcAppend('8')">8</button>
+            <button class="btn-action" onclick="calcAppend('9')">9</button>
+            <button class="btn-action" onclick="calcAppend('*')">×</button>
+            
+            <button class="btn-action" onclick="calcAppend('4')">4</button>
+            <button class="btn-action" onclick="calcAppend('5')">5</button>
+            <button class="btn-action" onclick="calcAppend('6')">6</button>
+            <button class="btn-action" onclick="calcAppend('-')">-</button>
+            
+            <button class="btn-action" onclick="calcAppend('1')">1</button>
+            <button class="btn-action" onclick="calcAppend('2')">2</button>
+            <button class="btn-action" onclick="calcAppend('3')">3</button>
+            <button class="btn-action" onclick="calcAppend('+')">+</button>
+            
+            <button class="btn-action" onclick="calcAppend('0')" style="grid-column: span 2;">0</button>
+            <button class="btn-action" onclick="calcAppend('.')">.</button>
+            <button class="btn-action" onclick="calcCompute()" style="background:#3fb950;">=</button>
+        </div>
+        <div class="steps-wrapper" id="calcResultBox"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Arithmetic & Scientific Computation:</strong> Performs fundamental math operations following standard operator precedence (PEMDAS/BODMAS). Essential for solving quick numerical expressions in physics and algebra.</p>
+        </div>
     </div>
 </div>
 
