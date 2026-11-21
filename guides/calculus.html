@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculus Guide - More Information & Practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: radial-gradient(circle at top, #11223a 0%, #0a0e17 45%, #070a12 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background-color: #131a29;
+      border: 1px solid #24324d;
+      border-radius: 10px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: #00d4ff;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+    }
+    .main-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0 0 6px 0;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    h2.more-info-heading {
+      font-size: 19px;
+      margin: 18px 0 12px 0;
+      color: #00d4ff;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 14px 0;
+      color: #00d4ff;
+    }
+    p {
+      margin: 0 0 15px 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    .formula-strip {
+      background-color: #0b101b;
+      border-left: 3px solid #00d4ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .quiz-section {
+      margin-top: 24px;
+    }
+    .question-block {
+      background-color: #0d1320;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .question-block p {
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    button.opt-btn {
+      padding: 9px 15px;
+      border: 1px solid #2a3954;
+      background-color: #161f33;
+      color: #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+    button.opt-btn:hover:not(:disabled) {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      background-color: #1a2740;
+    }
+    button.opt-btn:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+    button.opt-btn.solved-choice {
+      border-color: #10b981;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.15));
+      color: #34d399;
+      opacity: 1;
+      font-weight: 700;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 13.8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .correct {
+      color: #34d399;
+    }
+    .wrong {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Apex Science Engine</a>
+
+    <div class="main-card">
+      <h1>Calculus Tool Guide: Derivatives &amp; Integrals</h1>
+      <div class="subtitle">Rates of Change, Power Rule, Antiderivatives &amp; Step-by-Step Analysis</div>
+
+      <h2 class="more-info-heading">More Information</h2>
+
+      <p>
+        Calculus is the branch of mathematics that studies how quantities change continuously from moment to moment. While algebra deals with static equations and fixed values, calculus examines dynamic behavior such as instantaneous velocity, curve slopes, growth rates, and accumulated totals. In tools and scientific calculators, calculus operations rely on systematic differentiation and integration rules to turn complex functions into clear step-by-step results.
+      </p>
+
+      <div class="formula-strip">
+        Power Rule (Derivative): d/dx (x&supn;) = n &middot; x^(n-1) &nbsp;|&nbsp; Power Rule (Integral): &int; x&supn; dx = [x^(n+1) &divide; (n + 1)] + C (n &ne; -1)
+      </div>
+
+      <p>
+        Differentiation finds the derivative of a function, which represents its instantaneous rate of change or the slope of the tangent line at any point x. Using the power rule on a term like x&sup3;, you bring the exponent 3 down in front as a multiplier and subtract 1 from the exponent, resulting in 3x&sup2;. Constant terms such as +7 have a rate of change equal to zero because constants do not change as x varies. When a function is a sum or difference of terms, you differentiate each term separately and keep the signs consistent.
+      </p>
+
+      <p>
+        Integration works in the reverse direction of differentiation and is often called finding the antiderivative. When integrating a power term like x&sup2;, you add 1 to the exponent to get 3 and divide by that new exponent 3, yielding x&sup3; &divide; 3. For an indefinite integral, you always add the constant of integration (+ C) at the end because any constant term disappears when you take the derivative back. In physics and engineering, integration is used to accumulate area under a curve or recover position from a velocity function.
+      </p>
+
+      <p>
+        A practical example makes both operations clear. Suppose a function is f(x) = 4x&sup3; - 6x + 5. Taking the derivative term by term gives f'(x) = 4(3x&sup2;) - 6(1) + 0 = 12x&sup2; - 6. Notice how the exponent on x&sup3; drops from 3 to 2 while multiplying by 3, and the linear term -6x becomes -6. If you then integrate 12x&sup2; - 6 back, adding 1 to the exponent of x&sup2; gives 12x&sup3; &divide; 3 = 4x&sup3;, and integrating -6 gives -6x, returning to the original changing terms plus C.
+      </p>
+
+      <p>
+        Students and beginners frequently make predictable mistakes in calculus. Common errors include adding 1 to the exponent instead of subtracting 1 during differentiation, subtracting 1 instead of adding 1 during integration, forgetting to divide by the new exponent (n + 1) when integrating, or dropping the + C on indefinite integrals. Slowing down to verify the exponent direction—down for derivatives, up for integrals—prevents most calculation errors.
+      </p>
+
+      <div class="quiz-section">
+        <h3>Quick Check</h3>
+
+        <!-- Question 1 -->
+        <div class="question-block" id="q1">
+          <p><strong>1. Find the derivative f'(x) for:</strong> f(x) = 3x&sup4; - 5x&sup2; + 9</p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(1, '12x3-10x', this)">12x&sup3; - 10x</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '3x5-5x3+9x', this)">3x&sup5; - 5x&sup3; + 9x</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '12x4-10x2+9', this)">12x&sup4; - 10x&sup2; + 9</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '7x3-7x', this)">7x&sup3; - 7x</button>
+          </div>
+          <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block" id="q2">
+          <p><strong>2. Evaluate the indefinite integral:</strong> &int; 6x&sup2; dx</p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(2, '2x3+C', this)">2x&sup3; + C</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '12x', this)">12x</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '6x3', this)">6x&sup3;</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '2x+C', this)">2x + C</button>
+          </div>
+          <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block" id="q3">
+          <p><strong>3. Why is "+ C" included in an indefinite integral like &int; x dx = x&sup2;/2 + C?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(3, 'const_deriv_zero', this)">Any constant has a derivative of zero</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'mult_by_c', this)">You must multiply the answer by C</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'x_is_zero', this)">It means x equals zero</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'no_power_rule', this)">The power rule does not apply to x</button>
+          </div>
+          <div class="feedback" id="fb3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(function syncGuideNeonTheme() {
+    const savedColor = localStorage.getItem('apexNeonColor');
+    if (!savedColor) return;
+
+    document.documentElement.style.setProperty('--accent', savedColor);
+
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        backLink.style.color = savedColor;
+        backLink.style.borderColor = savedColor;
+    }
+
+    document.querySelectorAll('h2.more-info-heading, h3, .formula-strip').forEach((el) => {
+        if (el.classList.contains('formula-strip')) {
+            el.style.borderLeftColor = savedColor;
+            el.style.color = savedColor;
+        } else {
+            el.style.color = savedColor;
+        }
+    });
+})();
+    const lockedQuestions = {};
+
+    const reasons = {
+      1: {
+        correct: "12x3-10x",
+        okText: "Correct! Bring down exponents and subtract 1: 3(4x³) - 5(2x¹) + 0 = 12x³ - 10x.",
+        wrong: {
+          "3x5-5x3+9x": "Wrong: You added 1 to each exponent instead of subtracting 1 (that is integration, not differentiation).",
+          "12x4-10x2+9": "Wrong: You multiplied by the exponents (4 and 2) but forgot to reduce the powers by 1, and kept the constant 9.",
+          "7x3-7x": "Wrong: With the power rule you multiply by the exponent (3 × 4 = 12 and 5 × 2 = 10), not add them."
+        }
+      },
+      2: {
+        correct: "2x3+C",
+        okText: "Correct! Add 1 to the exponent (2 + 1 = 3) and divide by 3: (6x³) ÷ 3 + C = 2x³ + C.",
+        wrong: {
+          "12x": "Wrong: 12x is the derivative of 6x², not its integral. For integrals, increase the power by 1 and divide.",
+          "6x3": "Wrong: You increased the power to 3, but forgot to divide 6x³ by the new exponent 3 (and omitted + C).",
+          "2x+C": "Wrong: You subtracted 1 from the exponent instead of adding 1 to it."
+        }
+      },
+      3: {
+        correct: "const_deriv_zero",
+        okText: "Correct! Differentiating any constant (like +5 or -12) gives 0, so adding C represents all possible constants.",
+        wrong: {
+          "mult_by_c": "Wrong: + C is an added unknown constant, not a multiplier applied to the whole expression.",
+          "x_is_zero": "Wrong: C is the constant of integration, not a statement that x = 0.",
+          "no_power_rule": "Wrong: The power rule works for x (x¹); + C accounts for missing constant terms."
+        }
+      }
+    };
+
+    function answerQuestion(qNum, choice, btnEl) {
+      if (lockedQuestions[qNum]) return;
+
+      const qData = reasons[qNum];
+      const fb = document.getElementById("fb" + qNum);
+      const block = document.getElementById("q" + qNum);
+      const buttons = block.querySelectorAll("button.opt-btn");
+
+      if (choice === qData.correct) {
+        lockedQuestions[qNum] = true;
+        fb.className = "feedback correct";
+        fb.textContent = qData.okText;
+
+        buttons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn === btnEl) {
+            btn.classList.add("solved-choice");
+          }
+        });
+      } else {
+        fb.className = "feedback wrong";
+        fb.textContent = qData.wrong[choice] || "Wrong: Review the calculus rules and try again.";
+      }
+    }
+document.querySelectorAll(".question-block .options").forEach((optBox) => {
+  const btns = Array.from(optBox.children);
+  for (let i = btns.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    optBox.appendChild(btns[j]);
+  }
+});
+
+  </script>
+</body>
+</html>
