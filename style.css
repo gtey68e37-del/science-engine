@@ -363,3 +363,17 @@ canvas.display-canvas {
     color: var(--text-sub);
     line-height: 1.4;
 }
+.more-info-link {
+  color: var(--accent, #00d4ff); /* بياخد لون النيون الحالي تلقائياً */
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px dashed currentColor;
+  padding-bottom: 1px;
+  transition: color 0.25s ease, text-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.more-info-link:hover {
+  text-shadow: 0 0 10px currentColor;
+  opacity: 0.9;
+}
+

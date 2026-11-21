@@ -49,8 +49,18 @@ function animBg() {
 animBg();
 
 // Theme Switcher
+// Theme Switcher + Sync Neon Accent with Links & Guide Pages
 function setTheme(cls) {
     document.body.className = cls;
+
+    const currentPrimary = getComputedStyle(document.body).getPropertyValue('--primary').trim() || '#00f0ff';
+    localStorage.setItem('apexNeonColor', currentPrimary);
+
+    document.querySelectorAll('.more-info-link').forEach((link) => {
+        link.style.color = currentPrimary;
+        link.style.borderBottomColor = currentPrimary;
+    });
+
     setTimeout(drawGraph, 50);
 }
 
@@ -367,7 +377,7 @@ window.onload = function() {
     runConverter();
     runStatistics();
     drawGraph();
-    
+    localStorage.setItem('apexNeonColor', '#00f0ff');
     let savedNotes = localStorage.getItem('ahmedStudioNotes');
     if (savedNotes) {
         let notesBox = document.getElementById('userNotes');

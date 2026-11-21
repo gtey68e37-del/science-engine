@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Tool Guide - More Information & Practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: radial-gradient(circle at top, #11223a 0%, #0a0e17 45%, #070a12 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background-color: #131a29;
+      border: 1px solid #24324d;
+      border-radius: 10px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: #00d4ff;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+    }
+    .main-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0 0 6px 0;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    h2.more-info-heading {
+      font-size: 19px;
+      margin: 18px 0 12px 0;
+      color: #00d4ff;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 14px 0;
+      color: #00d4ff;
+    }
+    p {
+      margin: 0 0 15px 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    .formula-strip {
+      background-color: #0b101b;
+      border-left: 3px solid #00d4ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .quiz-section {
+      margin-top: 24px;
+    }
+    .question-block {
+      background-color: #0d1320;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .question-block p {
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    button.opt-btn {
+      padding: 9px 15px;
+      border: 1px solid #2a3954;
+      background-color: #161f33;
+      color: #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+    button.opt-btn:hover:not(:disabled) {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      background-color: #1a2740;
+    }
+    button.opt-btn:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+    button.opt-btn.solved-choice {
+      border-color: #10b981;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.15));
+      color: #34d399;
+      opacity: 1;
+      font-weight: 700;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 13.8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .correct {
+      color: #34d399;
+    }
+    .wrong {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Apex Science Engine</a>
+
+    <div class="main-card">
+      <h1>Physics Tool Guide: Force, Momentum &amp; Kinetic Energy</h1>
+      <div class="subtitle">Newton's Second Law (F = m &times; a) &bull; Momentum (p = m &times; v) &bull; Kinetic Energy (KE = &frac12; m v&sup2;)</div>
+
+      <h2 class="more-info-heading">More Information</h2>
+
+      <p>
+        The Physics tool in Apex Science Engine connects Newton's Second Law with motion quantities starting from mass m (in kilograms, kg) and acceleration a (in meters per second squared, m/s&sup2;). In Step 1 (Net Force), it multiplies mass by acceleration using F = m &times; a to find the net force in Newtons (N). For example, with m = 12 kg and a = 9.8 m/s&sup2;, the net force is F = 12 &times; 9.8 = 117.60 N[span_10](start_span)[span_10](end_span).
+      </p>
+
+      <div class="formula-strip">
+        Force: F = m &times; a (N) &nbsp;|&nbsp; Momentum: p = m &times; v (kg&middot;m/s) &nbsp;|&nbsp; Kinetic Energy: KE = &frac12; m v&sup2; (J)
+      </div>
+
+      <p>
+        In Step 2 (Momentum), the tool calculates linear momentum p using p = m &times; v, where v is velocity in m/s and momentum is measured in kg&middot;m/s[span_11](start_span)[span_11](end_span). Momentum measures how hard it is to stop a moving object: doubling either the mass m or the velocity v doubles the momentum p, assuming the other stays constant.
+      </p>
+
+      <p>
+        In Step 3 (Kinetic Energy), the tool computes the energy of motion using KE = &frac12; m v&sup2;, measured in Joules (J)[span_12](start_span)[span_12](end_span). Notice the critical difference between momentum and kinetic energy: velocity v is squared (v&sup2;) in kinetic energy! That means if velocity v doubles, momentum doubles (2&times;), while kinetic energy increases by four times (2&sup2; = 4&times;) for the same mass m.
+      </p>
+
+      <p>
+        When working through physics calculations, common mistakes include confusing mass (kg) with force (N), forgetting to square velocity v in KE = &frac12; m v&sup2;, or forgetting the &frac12; factor in front of m v&sup2;. Always check units (N for force, kg&middot;m/s for momentum, and J for kinetic energy) to verify your result makes physical sense.
+      </p>
+
+      <div class="quiz-section">
+        <h3>Quick Check</h3>
+
+        <!-- Question 1 -->
+        <div class="question-block" id="q1">
+          <p><strong>1. In Step 1 (F = m &times; a), what is the net force for m = 10 kg and a = 4 m/s&sup2;?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(1, '40N', this)">40 N</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '14N', this)">14 N</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '2.5N', this)">2.5 N</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '40kg', this)">40 kg</button>
+          </div>
+          <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block" id="q2">
+          <p><strong>2. In Step 2 (p = m &times; v), what is the momentum of a 6 kg object moving at v = 5 m/s?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(2, '30', this)">30 kg&middot;m/s</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '11', this)">11 kg&middot;m/s</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '75', this)">75 kg&middot;m/s</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '1.2', this)">1.2 kg&middot;m/s</button>
+          </div>
+          <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block" id="q3">
+          <p><strong>3. In Step 3 (KE = &frac12; m v&sup2;), if velocity v doubles while mass m stays the same, what happens to KE?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(3, '4x', this)">It increases by 4&times;</button>
+            <button class="opt-btn" onclick="answerQuestion(3, '2x', this)">It increases by 2&times;</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'same', this)">It stays the same</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'half', this)">It becomes half</button>
+          </div>
+          <div class="feedback" id="fb3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(function syncGuideNeonTheme() {
+    const savedColor = localStorage.getItem('apexNeonColor');
+    if (!savedColor) return;
+
+    document.documentElement.style.setProperty('--accent', savedColor);
+
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        backLink.style.color = savedColor;
+        backLink.style.borderColor = savedColor;
+    }
+
+    document.querySelectorAll('h2.more-info-heading, h3, .formula-strip').forEach((el) => {
+        if (el.classList.contains('formula-strip')) {
+            el.style.borderLeftColor = savedColor;
+            el.style.color = savedColor;
+        } else {
+            el.style.color = savedColor;
+        }
+    });
+})();
+
+    const lockedQuestions = {};
+
+    const reasons = {
+      1: {
+        correct: "40N",
+        okText: "Correct! Using F = m × a: 10 kg × 4 m/s² = 40 N.",
+        wrong: {
+          "14N": "Wrong: Force is m multiplied by a (10 × 4 = 40), not added (10 + 4 = 14).",
+          "2.5N": "Wrong: You divided 10 by 4 instead of multiplying m × a.",
+          "40kg": "Wrong: The number 40 is right, but force is measured in Newtons (N), not kilograms (kg)."
+        }
+      },
+      2: {
+        correct: "30",
+        okText: "Correct! Using p = m × v: 6 kg × 5 m/s = 30 kg·m/s.",
+        wrong: {
+          "11": "Wrong: Momentum is m × v (6 × 5 = 30), not m + v (6 + 5 = 11).",
+          "75": "Wrong: Check the multiplication—6 × 5 equals 30 kg·m/s, not 75.",
+          "1.2": "Wrong: You divided 6 by 5 instead of multiplying mass by velocity."
+        }
+      },
+      3: {
+        correct: "4x",
+        okText: "Correct! Because v is squared in KE = ½ m v², doubling v gives (2)² = 4 times the kinetic energy.",
+        wrong: {
+          "2x": "Wrong: Doubling v doubles momentum (p = mv), but kinetic energy has v², so (2)² = 4×.",
+          "same": "Wrong: Velocity is inside KE = ½ m v², so changing v changes the kinetic energy.",
+          "half": "Wrong: Increasing velocity increases kinetic energy rather than cutting it in half."
+        }
+      }
+    };
+
+    function answerQuestion(qNum, choice, btnEl) {
+      if (lockedQuestions[qNum]) return;
+
+      const qData = reasons[qNum];
+      const fb = document.getElementById("fb" + qNum);
+      const block = document.getElementById("q" + qNum);
+      const buttons = block.querySelectorAll("button.opt-btn");
+
+      if (choice === qData.correct) {
+        lockedQuestions[qNum] = true;
+        fb.className = "feedback correct";
+        fb.textContent = qData.okText;
+
+        buttons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn === btnEl) {
+            btn.classList.add("solved-choice");
+          }
+        });
+      } else {
+        fb.className = "feedback wrong";
+        fb.textContent = qData.wrong[choice] || "Wrong: Check the physics formula and try again.";
+      }
+    }
+document.querySelectorAll(".question-block .options").forEach((optBox) => {
+  const btns = Array.from(optBox.children);
+  for (let i = btns.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    optBox.appendChild(btns[j]);
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Converter Tool Guide - More Information & Practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: radial-gradient(circle at top, #11223a 0%, #0a0e17 45%, #070a12 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background-color: #131a29;
+      border: 1px solid #24324d;
+      border-radius: 10px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: #00d4ff;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+    }
+    .main-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0 0 6px 0;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    h2.more-info-heading {
+      font-size: 19px;
+      margin: 18px 0 12px 0;
+      color: #00d4ff;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 14px 0;
+      color: #00d4ff;
+    }
+    p {
+      margin: 0 0 15px 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    .formula-strip {
+      background-color: #0b101b;
+      border-left: 3px solid #00d4ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .quiz-section {
+      margin-top: 24px;
+    }
+    .question-block {
+      background-color: #0d1320;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .question-block p {
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    button.opt-btn {
+      padding: 9px 15px;
+      border: 1px solid #2a3954;
+      background-color: #161f33;
+      color: #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+    button.opt-btn:hover:not(:disabled) {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      background-color: #1a2740;
+    }
+    button.opt-btn:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+    button.opt-btn.solved-choice {
+      border-color: #10b981;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.15));
+      color: #34d399;
+      opacity: 1;
+      font-weight: 700;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 13.8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .correct {
+      color: #34d399;
+    }
+    .wrong {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Apex Science Engine</a>
+
+    <div class="main-card">
+      <h1>Converter Tool Guide: Dimensional Analysis &amp; Length Units</h1>
+      <div class="subtitle">Meters (m) &rarr; Kilometers (km = m / 1000), Miles (mi = m &times; 0.000621371) &amp; Feet (ft = m &times; 3.28084)</div>
+
+      <h2 class="more-info-heading">More Information</h2>
+
+      <p>
+        The Converter tool in Apex Science Engine performs dimensional analysis and length unit conversion starting from a value in meters (m), such as 100 m[span_7](start_span)[span_7](end_span). In science and engineering, the physical length stays the same, while the numerical value changes depending on the unit scale—linking Metric units like kilometers (km) with Imperial units like miles (mi) and feet (ft)[span_8](start_span)[span_8](end_span).
+      </p>
+
+      <div class="formula-strip">
+        km = m &divide; 1000 &nbsp;|&nbsp; mi = m &times; 0.000621371 &nbsp;|&nbsp; ft = m &times; 3.28084
+      </div>
+
+      <p>
+        Within the metric system, converting meters to kilometers divides by 1,000 because 1 kilometer equals 1,000 meters (km = m / 1000)[span_9](start_span)[span_9](end_span). For example, 100 m equals 100 &divide; 1,000 = 0.1000 km[span_10](start_span)[span_10](end_span). Dividing by 1,000 shifts the decimal point three places to the left, producing a smaller number because each kilometer represents a larger unit of length.
+      </p>
+
+      <p>
+        To convert from metric meters to Imperial length units, the tool multiplies by exact conversion factors: mi = m &times; 0.000621371 for miles and ft = m &times; 3.28084 for feet[span_11](start_span)[span_11](end_span). Since 1 meter is shorter than 1 mile and longer than 1 foot, 100 m becomes about 0.0621 mi and 328.08 ft[span_12](start_span)[span_12](end_span). Using exact factors prevents scaling errors when comparing measurements across different standards[span_13](start_span)[span_13](end_span).
+      </p>
+
+      <p>
+        When converting units manually, watch out for multiplying by 1,000 instead of dividing by 1,000 for kilometers, dividing by 3.28084 instead of multiplying for feet, or dropping unit labels at the end. Always ask whether the new unit is larger or smaller than a meter so you know if the number should shrink or grow.
+      </p>
+
+      <div class="quiz-section">
+        <h3>Quick Check</h3>
+
+        <!-- Question 1 -->
+        <div class="question-block" id="q1">
+          <p><strong>1. Using the tool's formula (km = m / 1000), what is 2,500 meters in kilometers?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(1, '2.5km', this)">2.5 km</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '2500000km', this)">2,500,000 km</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '25km', this)">25 km</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '0.25km', this)">0.25 km</button>
+          </div>
+          <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block" id="q2">
+          <p><strong>2. Which operation does the tool use to convert length in meters (m) to feet (ft)[span_14](start_span)[span_14](end_span)?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(2, 'mult_328', this)">Multiply m by 3.28084</button>
+            <button class="opt-btn" onclick="answerQuestion(2, 'div_328', this)">Divide m by 3.28084</button>
+            <button class="opt-btn" onclick="answerQuestion(2, 'div_1000', this)">Divide m by 1000</button>
+            <button class="opt-btn" onclick="answerQuestion(2, 'mult_00062', this)">Multiply m by 0.000621371</button>
+          </div>
+          <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block" id="q3">
+          <p><strong>3. Why does converting 100 m to miles (0.0621 mi) give a number smaller than 100[span_15](start_span)[span_15](end_span)?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(3, 'mile_larger', this)">One mile is much longer than one meter</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'mile_shorter', this)">One mile is shorter than one meter</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'no_length', this)">Miles measure mass instead of length</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'div_by_0', this)">The tool divides meters by zero</button>
+          </div>
+          <div class="feedback" id="fb3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(function syncGuideNeonTheme() {
+    const savedColor = localStorage.getItem('apexNeonColor');
+    if (!savedColor) return;
+
+    document.documentElement.style.setProperty('--accent', savedColor);
+
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        backLink.style.color = savedColor;
+        backLink.style.borderColor = savedColor;
+    }
+
+    document.querySelectorAll('h2.more-info-heading, h3, .formula-strip').forEach((el) => {
+        if (el.classList.contains('formula-strip')) {
+            el.style.borderLeftColor = savedColor;
+            el.style.color = savedColor;
+        } else {
+            el.style.color = savedColor;
+        }
+    });
+})();
+    const lockedQuestions = {};
+
+    const reasons = {
+      1: {
+        correct: "2.5km",
+        okText: "Correct! Dividing 2,500 m by 1,000 gives 2.5 km.",
+        wrong: {
+          "2500000km": "Wrong: You multiplied by 1,000 instead of dividing by 1,000 (2,500 ÷ 1,000 = 2.5 km).",
+          "25km": "Wrong: Check the decimal placement—2,500 ÷ 1,000 equals 2.5 km, not 25 km.",
+          "0.25km": "Wrong: 250 m ÷ 1,000 is 0.25 km, whereas 2,500 m ÷ 1,000 is 2.5 km."
+        }
+      },
+      2: {
+        correct: "mult_328",
+        okText: "Correct! The tool converts meters to feet using ft = m × 3.28084.",
+        wrong: {
+          "div_328": "Wrong: To get feet from meters, you multiply by 3.28084, not divide.",
+          "div_1000": "Wrong: Dividing meters by 1,000 converts to kilometers (km), not feet (ft).",
+          "mult_00062": "Wrong: Multiplying meters by 0.000621371 converts to miles (mi), not feet (ft)."
+        }
+      },
+      3: {
+        correct: "mile_larger",
+        okText: "Correct! Because 1 mile is much larger than 1 meter, it takes a small fraction of a mile (0.0621 mi) to equal 100 m.",
+        wrong: {
+          "mile_shorter": "Wrong: A mile is much longer than a meter (a foot is shorter than a meter, which is why 100 m = 328.08 ft).",
+          "no_length": "Wrong: Miles are a unit of length/distance, not mass.",
+          "div_by_0": "Wrong: The tool multiplies meters by 0.000621371 to get miles."
+        }
+      }
+    };
+
+    function answerQuestion(qNum, choice, btnEl) {
+      if (lockedQuestions[qNum]) return;
+
+      const qData = reasons[qNum];
+      const fb = document.getElementById("fb" + qNum);
+      const block = document.getElementById("q" + qNum);
+      const buttons = block.querySelectorAll("button.opt-btn");
+
+      if (choice === qData.correct) {
+        lockedQuestions[qNum] = true;
+        fb.className = "feedback correct";
+        fb.textContent = qData.okText;
+
+        buttons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn === btnEl) {
+            btn.classList.add("solved-choice");
+          }
+        });
+      } else {
+        fb.className = "feedback wrong";
+        fb.textContent = qData.wrong[choice] || "Wrong: Review the conversion formula and try again.";
+      }
+    }
+
+    document.querySelectorAll(".question-block .options").forEach((optBox) => {
+      const btns = Array.from(optBox.children);
+      for (let i = btns.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        optBox.appendChild(btns[j]);
+      }
+    });
+  </script>
+</body>
+</html>

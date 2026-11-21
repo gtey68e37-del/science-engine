@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistics Tool Guide - More Information & Practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: radial-gradient(circle at top, #11223a 0%, #0a0e17 45%, #070a12 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background-color: #131a29;
+      border: 1px solid #24324d;
+      border-radius: 10px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: #00d4ff;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+    }
+    .main-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0 0 6px 0;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    h2.more-info-heading {
+      font-size: 19px;
+      margin: 18px 0 12px 0;
+      color: #00d4ff;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 14px 0;
+      color: #00d4ff;
+    }
+    p {
+      margin: 0 0 15px 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    .formula-strip {
+      background-color: #0b101b;
+      border-left: 3px solid #00d4ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .quiz-section {
+      margin-top: 24px;
+    }
+    .question-block {
+      background-color: #0d1320;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .question-block p {
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    button.opt-btn {
+      padding: 9px 15px;
+      border: 1px solid #2a3954;
+      background-color: #161f33;
+      color: #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+    button.opt-btn:hover:not(:disabled) {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      background-color: #1a2740;
+    }
+    button.opt-btn:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+    button.opt-btn.solved-choice {
+      border-color: #10b981;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.15));
+      color: #34d399;
+      opacity: 1;
+      font-weight: 700;
+    }
+    .fill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+      align-items: center;
+    }
+    input.fill-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 9px 12px;
+      border: 1px solid #2a3954;
+      background-color: #121a2b;
+      color: #f8fafc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+    input.fill-input:focus {
+      border-color: #00d4ff;
+    }
+    input.fill-input:disabled {
+      opacity: 0.75;
+      border-color: #10b981;
+      color: #34d399;
+    }
+    button.check-btn {
+      padding: 9px 16px;
+      border: 1px solid #00d4ff;
+      background-color: #132238;
+      color: #00d4ff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    button.check-btn:hover:not(:disabled) {
+      background-color: #00d4ff;
+      color: #070a12;
+    }
+    button.check-btn:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
+    button.check-btn.solved-btn {
+      border-color: #10b981;
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      opacity: 1;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 13.8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .correct {
+      color: #34d399;
+    }
+    .wrong {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Apex Science Engine</a>
+
+    <div class="main-card">
+      <h1>Statistics Tool Guide: Mean, Extremes &amp; Median</h1>
+      <div class="subtitle">Count &amp; Sum &bull; Mean (Average = Sum / Count) &bull; Extremes (Max &amp; Min) &bull; Median</div>
+
+      <h2 class="more-info-heading">More Information</h2>
+
+      <p>
+        The Statistics tool in Apex Science Engine analyzes numerical datasets entered as comma-separated values, such as 10, 20, 30, 40, 50. First, it computes Count (how many numbers are in the list) and Sum (the total of all numbers added together). For 10, 20, 30, 40, 50, Count = 5 and Sum = 150.00.[span_4](start_span)[span_4](end_span)
+      </p>
+
+      <div class="formula-strip">
+        Mean = Sum &divide; Count &nbsp;|&nbsp; Extremes: Max (Largest) &amp; Min (Smallest) &nbsp;|&nbsp; Median: Middle Value After Sorting
+      </div>
+
+      <p>
+        Next, the tool finds the Mean (Average) by dividing Sum by Count: 150.00 &divide; 5 = 30.0000. It also reports Extremes: the Maximum (Max, largest value, here 50) and Minimum (Min, smallest value, here 10), which define the outer boundaries of the data.[span_5](start_span)[span_5](end_span)
+      </p>
+
+      <p>
+        Another essential measure in statistics is the Median (the middle value). To find the median correctly, you must first sort the numbers in order—either from smallest to largest (ascending) or from largest to smallest (descending). For example, in 12, 4, 19, 8, 15, sorting from smallest to largest gives 4, 8, 12, 15, 19, and the middle number is 12. Sorting from largest to smallest (19, 15, 12, 8, 4) gives the exact same middle value: 12. If there is an even count of numbers, the median is the average of the two middle numbers.
+      </p>
+
+      <p>
+        Watch out for common mistakes when analyzing data: forgetting to sort numbers before picking the middle value for the median, confusing the largest number (Max) with the mean, or dividing by the wrong count when values are missing. Always double-check how many numbers are in your dataset before calculating.
+      </p>
+
+      <div class="quiz-section">
+        <h3>Quick Check (Multiple Choice)</h3>
+
+        <!-- MCQ 1 -->
+        <div class="question-block" id="q1">
+          <p><strong>1. For the dataset 10, 20, 30, 40, 50, what is the Mean (Sum &divide; Count)?[span_6](start_span)[span_6](end_span)</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerMCQ(1, '30', this)">30</button>
+            <button class="opt-btn" onclick="answerMCQ(1, '150', this)">150</button>
+            <button class="opt-btn" onclick="answerMCQ(1, '25', this)">25</button>
+            <button class="opt-btn" onclick="answerMCQ(1, '40', this)">40</button>
+          </div>
+          <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- MCQ 2 -->
+        <div class="question-block" id="q2">
+          <p><strong>2. In the dataset 7, 25, 3, 18, 11, what are the Extremes (Min and Max)?[span_7](start_span)[span_7](end_span)</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerMCQ(2, '3_25', this)">Min: 3, Max: 25</button>
+            <button class="opt-btn" onclick="answerMCQ(2, '7_11', this)">Min: 7, Max: 11</button>
+            <button class="opt-btn" onclick="answerMCQ(2, '3_18', this)">Min: 3, Max: 18</button>
+            <button class="opt-btn" onclick="answerMCQ(2, '11_25', this)">Min: 11, Max: 25</button>
+          </div>
+          <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- MCQ 3 -->
+        <div class="question-block" id="q3">
+          <p><strong>3. What is the Median of 9, 2, 14, 6, 11 after ordering the numbers?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerMCQ(3, '9', this)">9</button>
+            <button class="opt-btn" onclick="answerMCQ(3, '2', this)">2</button>
+            <button class="opt-btn" onclick="answerMCQ(3, '14', this)">14</button>
+            <button class="opt-btn" onclick="answerMCQ(3, '10', this)">10</button>
+          </div>
+          <div class="feedback" id="fb3"></div>
+        </div>
+
+        <h3>Fill in the Blank (Type Your Answer)</h3>
+
+        <!-- Fill 4 -->
+        <div class="question-block" id="q4">
+          <p><strong>4. Order 16, 5, 22, 9, 13 from largest to smallest (separate numbers with commas):</strong></p>
+          <div class="fill-row">
+            <input type="text" class="fill-input" id="in4" placeholder="Example: 22, 16, ..." />
+            <button class="check-btn" id="btn4" onclick="checkFill(4)">Check</button>
+          </div>
+          <div class="feedback" id="fb4"></div>
+        </div>
+
+        <!-- Fill 5 -->
+        <div class="question-block" id="q5">
+          <p><strong>5. Find the Median (middle value) of 24, 8, 17, 4, 12 after sorting them:</strong></p>
+          <div class="fill-row">
+            <input type="text" class="fill-input" id="in5" placeholder="Enter the median number..." />
+            <button class="check-btn" id="btn5" onclick="checkFill(5)">Check</button>
+          </div>
+          <div class="feedback" id="fb5"></div>
+        </div>
+
+        <!-- Fill 6 -->
+        <div class="question-block" id="q6">
+          <p><strong>6. For 6, 30, 12, 24, 18, what is the largest value (Max)?[span_8](start_span)[span_8](end_span)</strong></p>
+          <div class="fill-row">
+            <input type="text" class="fill-input" id="in6" placeholder="Enter the maximum value..." />
+            <button class="check-btn" id="btn6" onclick="checkFill(6)">Check</button>
+          </div>
+          <div class="feedback" id="fb6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(function syncGuideNeonTheme() {
+    const savedColor = localStorage.getItem('apexNeonColor');
+    if (!savedColor) return;
+
+    document.documentElement.style.setProperty('--accent', savedColor);
+
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        backLink.style.color = savedColor;
+        backLink.style.borderColor = savedColor;
+    }
+
+    document.querySelectorAll('h2.more-info-heading, h3, .formula-strip').forEach((el) => {
+        if (el.classList.contains('formula-strip')) {
+            el.style.borderLeftColor = savedColor;
+            el.style.color = savedColor;
+        } else {
+            el.style.color = savedColor;
+        }
+    });
+})();
+
+    const lockedQuestions = {};
+
+    const mcqReasons = {
+      1: {
+        correct: "30",
+        okText: "Correct! Sum = 150 and Count = 5, so Mean = 150 ÷ 5 = 30.",
+        wrong: {
+          "150": "Wrong: 150 is the Sum of all numbers, not the Mean (150 ÷ 5 = 30).",
+          "25": "Wrong: Check your division—150 divided by 5 equals 30, not 25.",
+          "40": "Wrong: 40 is one of the values in the list, not the average of all five numbers."
+        }
+      },
+      2: {
+        correct: "3_25",
+        okText: "Correct! The smallest number (Min) is 3 and the largest number (Max) is 25.",
+        wrong: {
+          "7_11": "Wrong: 7 and 11 are the first and last items before sorting, not the Min and Max.",
+          "3_18": "Wrong: Min = 3 is right, but the largest value in the list is 25, not 18.",
+          "11_25": "Wrong: Max = 25 is right, but the smallest value in the list is 3, not 11."
+        }
+      },
+      3: {
+        correct: "9",
+        okText: "Correct! Sorted order is 2, 6, 9, 11, 14, so the middle number (Median) is 9.",
+        wrong: {
+          "2": "Wrong: 2 is the smallest number (Min), not the middle number after sorting.",
+          "14": "Wrong: 14 is the largest number (Max), not the median.",
+          "10": "Wrong: Sorted order is 2, 6, 9, 11, 14—the middle value is 9."
+        }
+      }
+    };
+
+    const fillRules = {
+      4: {
+        type: "list",
+        expected: [22, 16, 13, 9, 5],
+        okText: "Correct! Ordered from largest to smallest: 22, 16, 13, 9, 5.",
+        wrongOrderText: "Wrong: You entered numbers, but they are not in largest-to-smallest order (22, 16, 13, 9, 5).",
+        wrongCountText: "Wrong: Make sure you include all 5 numbers separated by commas (22, 16, 13, 9, 5)."
+      },
+      5: {
+        type: "single",
+        expected: 12,
+        okText: "Correct! Sorted order is 4, 8, 12, 17, 24, so the middle value (Median) is 12.",
+        wrongText: "Wrong: Sort 24, 8, 17, 4, 12 first (4, 8, 12, 17, 24)—the middle number is 12."
+      },
+      6: {
+        type: "single",
+        expected: 30,
+        okText: "Correct! The largest value (Max) in 6, 30, 12, 24, 18 is 30.",
+        wrongText: "Wrong: Look for the largest number in 6, 30, 12, 24, 18, which is 30."
+      }
+    };
+
+    function answerMCQ(qNum, choice, btnEl) {
+      if (lockedQuestions[qNum]) return;
+
+      const qData = mcqReasons[qNum];
+      const fb = document.getElementById("fb" + qNum);
+      const block = document.getElementById("q" + qNum);
+      const buttons = block.querySelectorAll("button.opt-btn");
+
+      if (choice === qData.correct) {
+        lockedQuestions[qNum] = true;
+        fb.className = "feedback correct";
+        fb.textContent = qData.okText;
+
+        buttons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn === btnEl) {
+            btn.classList.add("solved-choice");
+          }
+        });
+      } else {
+        fb.className = "feedback wrong";
+        fb.textContent = qData.wrong[choice] || "Wrong: Review the statistics rule and try again.";
+      }
+    }
+
+    function hasLetters(str) {
+      return /[a-zA-Z\u0600-\u06FF]/.test(str);
+    }
+
+    function checkFill(qNum) {
+      if (lockedQuestions[qNum]) return;
+
+      const inputEl = document.getElementById("in" + qNum);
+      const btnEl = document.getElementById("btn" + qNum);
+      const fb = document.getElementById("fb" + qNum);
+      const raw = inputEl.value.trim();
+      const rule = fillRules[qNum];
+
+      if (!raw) {
+        fb.className = "feedback wrong";
+        fb.textContent = "Wrong: Please type a number or list of numbers first.";
+        return;
+      }
+
+      if (hasLetters(raw)) {
+        fb.className = "feedback wrong";
+        fb.textContent = "Wrong: You typed letters! Enter numbers only (digits and commas when needed).";
+        return;
+      }
+
+      if (rule.type === "single") {
+        const numVal = Number(raw);
+        if (Number.isNaN(numVal)) {
+          fb.className = "feedback wrong";
+          fb.textContent = "Wrong: Please enter a valid number.";
+          return;
+        }
+        if (numVal === rule.expected) {
+          lockFill(qNum, inputEl, btnEl, fb, rule.okText);
+        } else {
+          fb.className = "feedback wrong";
+          fb.textContent = rule.wrongText;
+        }
+      } else if (rule.type === "list") {
+        const parts = raw.split(",").map((item) => item.trim()).filter(Boolean);
+        const nums = parts.map(Number);
+
+        if (nums.some((n) => Number.isNaN(n))) {
+          fb.className = "feedback wrong";
+          fb.textContent = "Wrong: Check your formatting—separate numbers with commas, no letters or extra symbols.";
+          return;
+        }
+
+        if (nums.length !== rule.expected.length) {
+          fb.className = "feedback wrong";
+          fb.textContent = rule.wrongCountText;
+          return;
+        }
+
+        const isExactMatch = nums.every((val, idx) => val === rule.expected[idx]);
+        if (isExactMatch) {
+          lockFill(qNum, inputEl, btnEl, fb, rule.okText);
+        } else {
+          fb.className = "feedback wrong";
+          fb.textContent = rule.wrongOrderText;
+        }
+      }
+    }
+
+    function lockFill(qNum, inputEl, btnEl, fb, okText) {
+      lockedQuestions[qNum] = true;
+      inputEl.disabled = true;
+      btnEl.disabled = true;
+      btnEl.classList.add("solved-btn");
+      fb.className = "feedback correct";
+      fb.textContent = okText;
+    }
+
+    document.querySelectorAll(".question-block .options").forEach((optBox) => {
+      const btns = Array.from(optBox.children);
+      for (let i = btns.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        optBox.appendChild(btns[j]);
+      }
+    });
+  </script>
+</body>
+</html>
