@@ -219,27 +219,35 @@
         <div class="calc-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px;">
             <button class="btn-action" onclick="calcClear()" style="background:#f50f0f;">C</button>
             <button class="btn-action" onclick="calcBackspace()" style="background:#f50f0f;">DEL</button>
+            <button class="btn-action" onclick="calcAppend('%')">%</button>
+            <button class="btn-action" onclick="calcAppend('÷')">÷</button>
+
+            <button class="btn-action" onclick="calcAppend('√(')">√</button>
+            <button class="btn-action" onclick="calcAppend('∛(')">∛</button>
+            <button class="btn-action" onclick="calcAppend('^2')">x²</button>
+            <button class="btn-action" onclick="calcAppend('^')">xʸ</button>
+
             <button class="btn-action" onclick="calcAppend('(')">(</button>
             <button class="btn-action" onclick="calcAppend(')')">)</button>
-            <button class="btn-action" onclick="calcAppend('÷')">÷</button>
-            
+            <button class="btn-action" onclick="calcAppend('π')">π</button>
+            <button class="btn-action" onclick="calcAppend('×')">×</button>
+
             <button class="btn-action" onclick="calcAppend('7')">7</button>
             <button class="btn-action" onclick="calcAppend('8')">8</button>
             <button class="btn-action" onclick="calcAppend('9')">9</button>
-            <button class="btn-action" onclick="calcAppend('×')">×</button>
-            
+            <button class="btn-action" onclick="calcAppend('-')">-</button>
+
             <button class="btn-action" onclick="calcAppend('4')">4</button>
             <button class="btn-action" onclick="calcAppend('5')">5</button>
             <button class="btn-action" onclick="calcAppend('6')">6</button>
-            <button class="btn-action" onclick="calcAppend('-')">-</button>
-            
+            <button class="btn-action" onclick="calcAppend('+')">+</button>
+
             <button class="btn-action" onclick="calcAppend('1')">1</button>
             <button class="btn-action" onclick="calcAppend('2')">2</button>
             <button class="btn-action" onclick="calcAppend('3')">3</button>
-            <button class="btn-action" onclick="calcAppend('+')">+</button>
-            
-            <button class="btn-action" onclick="calcAppend('0')" style="grid-column: span 2;">0</button>
             <button class="btn-action" onclick="calcAppend('.')">.</button>
+
+            <button class="btn-action" onclick="calcAppend('0')" style="grid-column: span 3;">0</button>
             <button class="btn-action" onclick="calcCompute()" style="background:#3fb950;">=</button>
         </div>
         <div class="steps-wrapper" id="calcResultBox"></div>

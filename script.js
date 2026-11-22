@@ -401,12 +401,24 @@ function calcClear() {
 }
 function calcCompute() {
     try {
-        let safeExp = calcExpression.replace(/×/g, '*').replace(/÷/g, '/');
+        let safeExp = calcExpression
+            .replace(/×/g, '*')
+            .replace(/÷/g, '/')
+            .replace(/\^/g, '**')
+            .replace(/π/g, '(' + Math.PI + ')')
+            .replace(/√\(/g, 'Math.sqrt(')
+            .replace(/∛\(/g, 'Math.cbrt(')
+            .replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
+
         let res = Function('"use strict";return (' + safeExp + ')')();
+        if (typeof res === 'number' && !isNaN(res) && isFinite(res)) {
+            res = Number(res.toFixed(8));
+        }
+
         let screen = document.getElementById('calcScreen');
-        if(screen) screen.value = res;
+        if (screen) screen.value = res;
         let resBox = document.getElementById('calcResultBox');
-        if(resBox) {
+        if (resBox) {
             resBox.innerHTML = `
                 <div class="step-item">
                     <div class="step-header"><span>Computation Result</span><span>Success</span></div>
@@ -414,9 +426,9 @@ function calcCompute() {
                 </div>`;
         }
         calcExpression = res.toString();
-    }	catch(e) {
+    } catch (e) {
         let resBox = document.getElementById('calcResultBox');
-        if(resBox) {
+        if (resBox) {
             resBox.innerHTML = `
                 <div class="step-item" style="border-left-color:#f50f0f;">
                     <div class="step-header" style="color:#f50f0f;"><span>Syntax Error</span></div>
