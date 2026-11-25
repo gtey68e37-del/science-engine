@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry &amp; Trigonometry Tool Guide - More Information &amp; Practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: radial-gradient(circle at top, #11223a 0%, #0a0e17 45%, #070a12 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background-color: #131a29;
+      border: 1px solid #24324d;
+      border-radius: 10px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: #00d4ff;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+    }
+    .main-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0 0 6px 0;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    h2.more-info-heading {
+      font-size: 19px;
+      margin: 18px 0 12px 0;
+      color: #00d4ff;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 14px 0;
+      color: #00d4ff;
+    }
+    p {
+      margin: 0 0 15px 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    .formula-strip {
+      background-color: #0b101b;
+      border-left: 3px solid #00d4ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .quiz-section {
+      margin-top: 24px;
+    }
+    .question-block {
+      background-color: #0d1320;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .question-block p {
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    button.opt-btn {
+      padding: 9px 15px;
+      border: 1px solid #2a3954;
+      background-color: #161f33;
+      color: #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+    button.opt-btn:hover:not(:disabled) {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      background-color: #1a2740;
+    }
+    button.opt-btn:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+    button.opt-btn.solved-choice {
+      border-color: #10b981;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.15));
+      color: #34d399;
+      opacity: 1;
+      font-weight: 700;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 13.8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .correct {
+      color: #34d399;
+    }
+    .wrong {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Apex Science Engine</a>
+
+    <div class="main-card">
+      <h1>Geometry &amp; Trigonometry Tool Guide</h1>
+      <div class="subtitle">Circle &amp; Triangle Formulas &bull; 3D Sphere Surface &amp; Volume &bull; Degrees to Radians &amp; Trig Ratios</div>
+
+      <h2 class="more-info-heading">More Information</h2>
+
+      <p>
+        The Geometry &amp; Trigonometry tool in Apex Science Engine computes exact measurements for 2D shapes, 3D solids, and trigonometric angles. For a Circle with radius r, it calculates Area (A = &pi;r&sup2;) and Circumference (C = 2&pi;r). For a Triangle with base b and height h, it computes Area (A = &frac12; &times; b &times; h) along with the right-triangle hypotenuse c = &radic;(b&sup2; + h&sup2;).
+      </p>
+
+      <div class="formula-strip">
+        Circle: A = &pi;r&sup2;, C = 2&pi;r &nbsp;|&nbsp; Sphere: S = 4&pi;r&sup2;, V = (4/3)&pi;r&sup3; &nbsp;|&nbsp; Radians: rad = &theta; &times; (&pi; &divide; 180)
+      </div>
+
+      <p>
+        In 3D Sphere mode, entering radius r gives both Surface Area (S = 4&pi;r&sup2;, measured in square units) and Volume (V = (4/3)&pi;r&sup3;, measured in cubic units). Notice how radius r is squared for surface area and cubed for volume, meaning doubling the radius multiplies surface area by 4 and volume by 8.
+      </p>
+
+      <p>
+        In Trigonometry mode, the tool converts an angle &theta; from degrees into radians using rad = &theta; &times; (&pi; &divide; 180) before evaluating sin(&theta;), cos(&theta;), and tan(&theta;). For example, at &theta; = 30&deg;, rad &approx; 0.5236, sin(30&deg;) = 0.5000, cos(30&deg;) &approx; 0.8660, and tan(30&deg;) &approx; 0.5774. At 90&deg; or 270&deg;, cos(&theta;) = 0, making tan(&theta;) = sin(&theta;) &divide; cos(&theta;) undefined.
+      </p>
+
+      <p>
+        Common mistakes in geometry and trigonometry include confusing diameter with radius (r = diameter &divide; 2), forgetting the &frac12; factor in triangle area, or plugging degrees directly into radian-based formulas without multiplying by &pi; &divide; 180 first.
+      </p>
+
+      <div class="quiz-section">
+        <h3>Quick Check</h3>
+
+        <!-- Question 1 -->
+        <div class="question-block" id="q1">
+          <p><strong>1. For a triangle with base b = 6 and height h = 4, what is its area (A = &frac12; &times; b &times; h)?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(1, '12', this)">12 sq units</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '24', this)">24 sq units</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '10', this)">10 sq units</button>
+            <button class="opt-btn" onclick="answerQuestion(1, '5', this)">5 sq units</button>
+          </div>
+          <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block" id="q2">
+          <p><strong>2. How does the tool convert an angle &theta; from degrees to radians?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(2, 'pi_180', this)">&theta; &times; (&pi; &divide; 180)</button>
+            <button class="opt-btn" onclick="answerQuestion(2, '180_pi', this)">&theta; &times; (180 &divide; &pi;)</button>
+            <button class="opt-btn" onclick="answerQuestion(2, 'mult_2pi', this)">&theta; &times; 2&pi;</button>
+            <button class="opt-btn" onclick="answerQuestion(2, 'div_360', this)">&theta; &divide; 360</button>
+          </div>
+          <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block" id="q3">
+          <p><strong>3. Why is tan(90&deg;) reported as "Undefined" by the tool?</strong></p>
+          <div class="options">
+            <button class="opt-btn" onclick="answerQuestion(3, 'cos_zero', this)">Because cos(90&deg;) = 0, causing division by zero</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'sin_zero', this)">Because sin(90&deg;) = 0</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'neg_angle', this)">Because 90&deg; is a negative angle</button>
+            <button class="opt-btn" onclick="answerQuestion(3, 'rad_zero', this)">Because 90&deg; equals 0 radians</button>
+          </div>
+          <div class="feedback" id="fb3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(function syncGuideNeonTheme() {
+    const savedColor = localStorage.getItem('apexNeonColor');
+    if (!savedColor) return;
+
+    document.documentElement.style.setProperty('--accent', savedColor);
+
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        backLink.style.color = savedColor;
+        backLink.style.borderColor = savedColor;
+    }
+
+    document.querySelectorAll('h2.more-info-heading, h3, .formula-strip').forEach((el) => {
+        if (el.classList.contains('formula-strip')) {
+            el.style.borderLeftColor = savedColor;
+            el.style.color = savedColor;
+        } else {
+            el.style.color = savedColor;
+        }
+    });
+})();
+
+    const lockedQuestions = {};
+
+    const reasons = {
+      1: {
+        correct: "12",
+        okText: "Correct! Triangle Area = ½ × 6 × 4 = 12 square units.",
+        wrong: {
+          "24": "Wrong: 6 × 4 = 24 is the area of a rectangle; remember to multiply by ½ to get 12.",
+          "10": "Wrong: Area multiplies base and height (½ × b × h), rather than adding 6 + 4.",
+          "5": "Wrong: Check the multiplication—½ × 6 × 4 equals 12, not 5."
+        }
+      },
+      2: {
+        correct: "pi_180",
+        okText: "Correct! Since 180° = π radians, multiplying degrees by (π ÷ 180) converts to radians.",
+        wrong: {
+          "180_pi": "Wrong: Multiplying by (180 ÷ π) converts radians back into degrees, not degrees into radians.",
+          "mult_2pi": "Wrong: 2π radians equals a full 360° circle, so you must divide by 180 after multiplying by π.",
+          "div_360": "Wrong: Dividing by 360 gives the fraction of a full turn without the π factor."
+        }
+      },
+      3: {
+        correct: "cos_zero",
+        okText: "Correct! Since tan(θ) = sin(θ) ÷ cos(θ) and cos(90°) = 0, dividing by zero is undefined.",
+        wrong: {
+          "sin_zero": "Wrong: At 90°, sin(90°) = 1 while cos(90°) = 0.",
+          "neg_angle": "Wrong: 90° is a positive right angle; tan(90°) is undefined because cos(90°) = 0.",
+          "rad_zero": "Wrong: 90° equals π/2 radians (about 1.5708 rad), not 0."
+        }
+      }
+    };
+
+    function answerQuestion(qNum, choice, btnEl) {
+      if (lockedQuestions[qNum]) return;
+
+      const qData = reasons[qNum];
+      const fb = document.getElementById("fb" + qNum);
+      const block = document.getElementById("q" + qNum);
+      const buttons = block.querySelectorAll("button.opt-btn");
+
+      if (choice === qData.correct) {
+        lockedQuestions[qNum] = true;
+        fb.className = "feedback correct";
+        fb.textContent = qData.okText;
+
+        buttons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn === btnEl) {
+            btn.classList.add("solved-choice");
+          }
+        });
+      } else {
+        fb.className = "feedback wrong";
+        fb.textContent = qData.wrong[choice] || "Wrong: Review the geometry formula and try again.";
+      }
+    }
+
+    document.querySelectorAll(".question-block .options").forEach((optBox) => {
+      const btns = Array.from(optBox.children);
+      for (let i = btns.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        optBox.appendChild(btns[j]);
+      }
+    });
+  </script>
+</body>
+</html>
