@@ -69,7 +69,7 @@ function openTab(name, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     if(btn) btn.classList.add('active');
 
-    const allPanels = ['algebra', 'calculator', 'calculus', 'physics', 'graph', 'matrix', 'converter', 'stats', 'notes', 'motion'];
+    const allPanels = ['algebra', 'calculator', 'calculus', 'physics', 'graph', 'matrix', 'converter', 'stats', 'notes', 'motion', 'geometry'];
 
     allPanels.forEach(p => {
         let panel = document.getElementById(p + 'Panel');
@@ -146,25 +146,69 @@ function runAlgebra() {
     wrap.innerHTML = html;
 }
 
-// 2. Calculus
+// 2. Calculus (Real Polynomial Derivative & Integral Engine)
 function runCalculus() {
-    let exp = document.getElementById('calcExp').value;
+    let exp = document.getElementById('calcExp').value.trim();
     let wrap = document.getElementById('calcSteps');
 
-    wrap.innerHTML = `
-        <div class="step-item">
-            <div class="step-header"><span>Step 1: Function Parsing</span><span>f(x)</span></div>
-            <div class="step-code">f(x) = ${exp}</div>
-        </div>
-        <div class="step-item">
-            <div class="step-header"><span>Step 2: Derivative f'(x)</span><span>Power Rule</span></div>
-            <div class="step-code">First derivative calculated across continuous values.</div>
-        </div>
-        <div class="step-item">
-            <div class="step-header"><span>Step 3: Definite Integral</span><span>Area Under Curve</span></div>
-            <div class="step-code">∫ f(x) dx evaluated between bounds [-2, 2].</div>
-        </div>
-    `;
+    try {
+        let normalized = exp.replace(/\s+/g, '').replace(/-/g, '+-');
+        let terms = normalized.split('+').filter(t => t.length > 0);
+
+        let derivTerms = [];
+        let integTerms = [];
+
+        terms.forEach(term => {
+            if (!term.includes('x')) {
+                let c = parseFloat(term);
+                if (!isNaN(c) && c !== 0) {
+                    integTerms.push(`${c}x`);
+                }
+                return;
+            }
+
+            let parts = term.split(/\*?x\^?/);
+            let coefStr = parts[0];
+            let coef = (coefStr === '' || coefStr === '+') ? 1 : (coefStr === '-' ? -1 : parseFloat(coefStr));
+            let power = parts[1] !== undefined && parts[1] !== '' ? parseFloat(parts[1]) : 1;
+
+            let dCoef = coef * power;
+            let dPow = power - 1;
+            if (dCoef !== 0) {
+                if (dPow === 0) derivTerms.push(`${dCoef}`);
+                else if (dPow === 1) derivTerms.push(`${dCoef}x`);
+                else derivTerms.push(`${dCoef}x^${dPow}`);
+            }
+
+            let iPow = power + 1;
+            let iCoef = +(coef / iPow).toFixed(3);
+            integTerms.push(`${iCoef}x^${iPow}`);
+        });
+
+        let derivativeStr = derivTerms.length ? derivTerms.join(' + ').replace(/\+\s*-/g, '- ') : '0';
+        let integralStr = (integTerms.length ? integTerms.join(' + ').replace(/\+\s*-/g, '- ') : '0') + ' + C';
+
+        wrap.innerHTML = `
+            <div class="step-item">
+                <div class="step-header"><span>Step 1: Target Function</span><span>f(x)</span></div>
+                <div class="step-code">f(x) = ${exp}</div>
+            </div>
+            <div class="step-item">
+                <div class="step-header"><span>Step 2: First Derivative f'(x)</span><span>d/dx [xⁿ] = n·xⁿ⁻¹</span></div>
+                <div class="step-code">f'(x) = ${derivativeStr}</div>
+            </div>
+            <div class="step-item">
+                <div class="step-header"><span>Step 3: Indefinite Integral</span><span>∫ xⁿ dx = xⁿ⁺¹/(n+1) + C</span></div>
+                <div class="step-code">∫ f(x) dx = ${integralStr}</div>
+            </div>
+        `;
+    } catch (e) {
+        wrap.innerHTML = `
+            <div class="step-item">
+                <div class="step-header"><span>Input Format</span><span>Polynomials</span></div>
+                <div class="step-code">Use format like: 2x^3 - 4x^2 + 5x - 1</div>
+            </div>`;
+    }
 }
 
 // 3. Physics
@@ -373,9 +417,11 @@ function runMotionPhysics() {
 // Auto-Run Default Functions on Load
 window.onload = function() {
     runAlgebra();
+    runCalculus();
     runPhysics();
     runConverter();
     runStatistics();
+    runGeometry();
     drawGraph();
     localStorage.setItem('apexNeonColor', '#00f0ff');
     let savedNotes = localStorage.getItem('ahmedStudioNotes');
@@ -446,4 +492,56 @@ function calcBackspace() {
     }
     let screen = document.getElementById('calcScreen');
     if(screen) screen.value = calcExpression;
+}
+// 11. Geometry & Trigonometry Solver
+function updateGeoFields() {
+    const shape = document.getElementById('geoShape').value;
+    const lbl1 = document.getElementById('geoLabel1');
+    const grp2 = document.getElementById('geoGroup2');
+
+    if (shape === 'triangle') {
+        lbl1.textContent = 'Base b:';
+        grp2.classList.remove('hidden');
+    } else if (shape === 'trig') {
+        lbl1.textContent = 'Angle θ (Degrees):';
+        grp2.classList.add('hidden');
+    } else {
+        lbl1.textContent = 'Radius r:';
+        grp2.classList.add('hidden');
+    }
+    runGeometry();
+}
+
+function runGeometry() {
+    const shape = document.getElementById('geoShape').value;
+    const v1 = parseFloat(document.getElementById('geoVal1').value) || 0;
+    const v2 = parseFloat(document.getElementById('geoVal2').value) || 0;
+    const wrap = document.getElementById('geoSteps');
+    if (!wrap) return;
+
+    if (shape === 'circle') {
+        const area = Math.PI * v1 * v1;
+        const circum = 2 * Math.PI * v1;
+        wrap.innerHTML = `
+            <div class="step-item"><div class="step-header"><span>Circle Area</span><span>A = πr²</span></div><div class="step-code">A = ${area.toFixed(4)} sq units</div></div>
+            <div class="step-item"><div class="step-header"><span>Circumference</span><span>C = 2πr</span></div><div class="step-code">C = ${circum.toFixed(4)} units</div></div>`;
+    } else if (shape === 'triangle') {
+        const area = 0.5 * v1 * v2;
+        const hyp = Math.hypot(v1, v2);
+        wrap.innerHTML = `
+            <div class="step-item"><div class="step-header"><span>Triangle Area</span><span>A = ½ × b × h</span></div><div class="step-code">A = ${area.toFixed(4)} sq units</div></div>
+            <div class="step-item"><div class="step-header"><span>Right Hypotenuse</span><span>c = √(b² + h²)</span></div><div class="step-code">c = ${hyp.toFixed(4)} units</div></div>`;
+    } else if (shape === 'sphere') {
+        const surface = 4 * Math.PI * v1 * v1;
+        const volume = (4 / 3) * Math.PI * Math.pow(v1, 3);
+        wrap.innerHTML = `
+            <div class="step-item"><div class="step-header"><span>Surface Area</span><span>S = 4πr²</span></div><div class="step-code">S = ${surface.toFixed(4)} sq units</div></div>
+            <div class="step-item"><div class="step-header"><span>Sphere Volume</span><span>V = (4/3)πr³</span></div><div class="step-code">V = ${volume.toFixed(4)} cubic units</div></div>`;
+    } else if (shape === 'trig') {
+        const rad = v1 * (Math.PI / 180);
+        wrap.innerHTML = `
+            <div class="step-item"><div class="step-header"><span>Radians</span><span>rad = θ × π/180</span></div><div class="step-code">${rad.toFixed(4)} rad</div></div>
+            <div class="step-item"><div class="step-header"><span>sin(θ) & cos(θ)</span><span>Unit Circle</span></div><div class="step-code">sin(${v1}°) = ${Math.sin(rad).toFixed(4)} | cos(${v1}°) = ${Math.cos(rad).toFixed(4)}</div></div>
+            <div class="step-item"><div class="step-header"><span>tan(θ)</span><span>sin(θ) / cos(θ)</span></div><div class="step-code">tan(${v1}°) = ${Math.abs(Math.cos(rad)) < 1e-10 ? 'Undefined' : Math.tan(rad).toFixed(4)}</div></div>`;
+    }
 }

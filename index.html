@@ -17,6 +17,15 @@
     <meta property='og:url' content='https://gtey68e37-del.github.io/science-engine/'>
     <meta property='og:type' content='website'>
     <meta name="google-site-verification" content="QS0BxrG1aS05S9CCdTJL2Yik_OX9X4Pds1FD8UfPoko" />    
+    <!-- MathJax for Mathematical Formulas -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
@@ -53,6 +62,7 @@
         <button class="tab-btn" onclick="openTab('notes', this)">Smart Notes</button>
         <button class="tab-btn" onclick="openTab('motion', this)">Physics Motion</button>
         <button class="tab-btn" onclick="openTab('calculator', this)">Calculator 🧮</button>
+        <button class="tab-btn" onclick="openTab('geometry', this)">Geometry 📐</button>
     </div>
 
     <!-- Panel 1: Algebra -->
@@ -257,7 +267,40 @@
         </div>
     </div>
 </div>
-
+    <!-- Panel 11: Geometry & Trigonometry -->
+    <div id="geometryPanel" class="panel-card hidden">
+        <div class="input-group">
+            <label>Select Shape / Mode:</label>
+            <select id="geoShape" class="input-box" onchange="updateGeoFields()">
+                <option value="circle">Circle (Radius r)</option>
+                <option value="triangle">Triangle (Base b, Height h)</option>
+                <option value="sphere">Sphere 3D (Radius r)</option>
+                <option value="trig">Trigonometry (Angle θ in Degrees)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label id="geoLabel1">Radius r:</label>
+            <input type="number" id="geoVal1" class="input-box" value="5" oninput="runGeometry()">
+        </div>
+        <div class="input-group hidden" id="geoGroup2">
+            <label id="geoLabel2">Height h:</label>
+            <input type="number" id="geoVal2" class="input-box" value="8" oninput="runGeometry()">
+        </div>
+        <button class="btn-action" onclick="runGeometry()">Compute Geometry & Trig ⚡</button>
+        <div class="steps-wrapper" id="geoSteps"></div>
+        <div class="lesson-explanation">
+            <h4>📖 Lesson Breakdown & Theory:</h4>
+            <p><strong>Euclidean Geometry & Trigonometry:</strong> Computes exact area, perimeter, 3D surface area/volume, and trigonometric ratios ($\sin\theta, \cos\theta, \tan\theta$) by converting degrees to radians ($\theta \times \frac{\pi}{180}$) <a href="guides/geometry.html" class="more-info-link">More Information</a>.</p></p>
+        </div>
+    </div>
+<footer class="site-footer">
+    <div class="footer-status">
+        <span class="status-dot"></span>
+        <span>online - building something</span>
+    </div>
+    <div class="footer-copy">© 2026 Apex Science Engine</div>
+    <div class="footer-tag">// built with logic &amp; curiosity</div>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>
